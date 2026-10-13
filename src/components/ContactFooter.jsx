@@ -226,10 +226,11 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
               <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About & Philosophy</a></li>
               <li><a href="#courses" className="hover:text-white transition-colors">Course Tracks & Batches</a></li>
-              <li><a href="#why-us" className="hover:text-white transition-colors">Why Choose HLA</a></li>
-              <li><a href="#methodology" className="hover:text-white transition-colors">5-Stage Methodology</a></li>
+              <li><a href="#timetable" className="hover:text-white transition-colors">Class Timetable & PDF</a></li>
               <li><a href="#faculty" className="hover:text-white transition-colors">Senior Educators</a></li>
+              <li><a href="#gallery" className="hover:text-white transition-colors">Classroom Environment</a></li>
               <li><a href="#approach" className="hover:text-white transition-colors">Our Approach to JEE</a></li>
+              <li><a href="#resources" className="hover:text-white transition-colors">Study Resources & Notices</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Campus Location & Contact</a></li>
             </ul>
           </div>

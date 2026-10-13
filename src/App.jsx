@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import InteractiveLanding from './components/InteractiveLanding';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ImpactCounterStrip from './components/ImpactCounterStrip';
 import AboutSection from './components/AboutSection';
 import Courses from './components/Courses';
+import ClassTimetable from './components/ClassTimetable';
 import WhyChooseUs from './components/WhyChooseUs';
 import LearningMethodology from './components/LearningMethodology';
 import Faculty from './components/Faculty';
+import ClassroomGallery from './components/ClassroomGallery';
 import ApproachToJEE from './components/ApproachToJEE';
+import StudyResources from './components/StudyResources';
 import EnquirySection from './components/EnquirySection';
 import ContactFooter from './components/ContactFooter';
 import EnquiryModal from './components/EnquiryModal';
@@ -17,6 +21,15 @@ import Toast from './components/Toast';
 import { ACADEMY_CONFIG } from './data/academyData';
 
 function App() {
+  // Check if visitor has already dismissed landing in this session
+  const [hasEnteredSite, setHasEnteredSite] = useState(() => {
+    try {
+      return sessionStorage.getItem('hla_has_entered') === 'true';
+    } catch (e) {
+      return false;
+    }
+  });
+
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
   const [selectedCourseForModal, setSelectedCourseForModal] = useState(null);
   
@@ -27,6 +40,13 @@ function App() {
 
   const [toastMessage, setToastMessage] = useState('');
   const [isToastVisible, setIsToastVisible] = useState(false);
+
+  const handleEnterSite = () => {
+    try {
+      sessionStorage.setItem('hla_has_entered', 'true');
+    } catch (e) {}
+    setHasEnteredSite(true);
+  };
 
   // Keyboard shortcut listener for Ctrl + Shift + A (Admin Leads Modal)
   useEffect(() => {
@@ -78,51 +98,69 @@ function App() {
         onClose={() => setIsToastVisible(false)} 
       />
 
+      {/* PHASE 3: Dedicated Full-Screen Interactive Landing Experience */}
+      {!hasEnteredSite && (
+        <InteractiveLanding onEnter={handleEnterSite} />
+      )}
+
+      {/* PHASE 4: Complete Coaching Website */}
       {/* Sticky Navigation Bar */}
       <Navbar onEnquireClick={() => openEnquiryModal()} />
 
       {/* Main Content Sections */}
       <main className="flex-1">
         
-        {/* Section: Hero */}
+        {/* Section 1: Main Hero */}
         <Hero 
           onExploreCourses={scrollToCourses}
           onEnquireClick={() => openEnquiryModal()}
         />
 
-        {/* Section: Animated Impact Counter Strip */}
+        {/* Impact Counter Strip */}
         <ImpactCounterStrip />
 
-        {/* Section B: About Us & Academic Philosophy */}
+        {/* Section 2: About the Institute */}
         <AboutSection />
 
-        {/* Section C: Courses with Interactive Timeline & Batch Badges */}
+        {/* Section 3: Courses and Programs */}
         <Courses 
           onSelectCourse={(courseId) => openEnquiryModal(courseId)} 
           onOpenTimelineModal={(courseId) => openSyllabusModal(courseId)}
         />
 
-        {/* Section D: Why Choose Us (Pedagogy & 4-Stage Cycle) */}
-        <WhyChooseUs 
-          onEnquireClick={() => openEnquiryModal()} 
-        />
-
-        {/* Section E: 5-Stage Systematic Learning Methodology */}
-        <LearningMethodology 
+        {/* Section 8: Downloadable Class Timetable with Live PDF Generator */}
+        <ClassTimetable 
           onEnquireClick={() => openEnquiryModal()}
         />
 
-        {/* Section F: Faculty with Verified Senior Educator Credentials */}
+        {/* Section 4: Faculty and Teachers */}
         <Faculty 
           onEnquireClick={() => openEnquiryModal()} 
         />
 
-        {/* Section G: Our Approach to JEE Preparation (6 Pillars & Diagnostic Session) */}
+        {/* Section 5: Student Gallery and Classroom Photography */}
+        <ClassroomGallery />
+
+        {/* Section 7: Teaching Experience and 5-Stage Learning Methodology */}
+        <WhyChooseUs 
+          onEnquireClick={() => openEnquiryModal()} 
+        />
+
+        <LearningMethodology 
+          onEnquireClick={() => openEnquiryModal()}
+        />
+
+        {/* Section 6: Results and Achievements / Commitment to JEE Preparation */}
         <ApproachToJEE 
           onEnquireClick={() => openEnquiryModal()}
         />
 
-        {/* Section: Comprehensive On-Page Admission Enquiry */}
+        {/* Section 9 & 10: Study Materials, Resources & Official Notice Board */}
+        <StudyResources 
+          onEnquireClick={() => openEnquiryModal()}
+        />
+
+        {/* Section 12: Admission Enquiry Form */}
         <EnquirySection 
           selectedCourseId={selectedCourseForModal}
           onResetCourseSelection={() => setSelectedCourseForModal(null)}
@@ -131,7 +169,7 @@ function App() {
 
       </main>
 
-      {/* Section: Contact, FAQs & Footer with Admin Link */}
+      {/* Section 13, 14 & 15: FAQ Accordion, Contact & Location, and Footer */}
       <ContactFooter 
         onEnquireClick={() => openEnquiryModal()}
         onOpenAdminLeads={() => setIsAdminLeadsOpen(true)}

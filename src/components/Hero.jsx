@@ -53,9 +53,9 @@ export default function Hero({ onExploreCourses, onEnquireClick }) {
                 animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              YOUR IIT-JEE <br />
+              PREPARE WITH PURPOSE. <br />
               <span className="bg-gradient-to-r from-white via-slate-100 to-gold bg-clip-text text-transparent">
-                JOURNEY STARTS HERE.
+                AIM HIGHER.
               </span>
             </h1>
 
@@ -65,28 +65,41 @@ export default function Hero({ onExploreCourses, onEnquireClick }) {
                 animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              Build strong concepts. Develop problem-solving skills. Prepare with purpose. Personalised coaching and disciplined mentorship designed for rigorous academic excellence.
+              Explore structured JEE preparation, academic guidance, and the resources you need to make your next step count. Personalised coaching and disciplined mentorship designed for rigorous academic excellence.
             </p>
 
-            {/* Step 5: Primary & Secondary CTAs */}
+            {/* Step 5: Primary & Secondary CTAs (Explore Courses, View Timetable, Admission Enquiry) */}
             <div 
-              className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 transition-all duration-700 delay-500 ${
+              className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2 transition-all duration-700 delay-500 ${
                 animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               <button
                 onClick={onExploreCourses}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-royalBlue text-white font-bold text-sm sm:text-base shadow-lg shadow-royalBlue/30 hover:bg-royalBlue-hover hover:shadow-glow-blue active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-royalBlue text-white font-bold text-sm shadow-lg shadow-royalBlue/30 hover:bg-royalBlue-hover hover:shadow-glow-blue active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <span>EXPLORE OUR PROGRAMS</span>
+                <span>Explore Courses</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
-                onClick={() => onEnquireClick()}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm sm:text-base hover:bg-white/15 hover:border-gold/60 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                onClick={() => {
+                  const tt = document.getElementById('timetable');
+                  if (tt) {
+                    const offset = tt.getBoundingClientRect().top + window.pageYOffset - 75;
+                    window.scrollTo({ top: offset, behavior: 'smooth' });
+                  }
+                }}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/15 hover:border-gold/60 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>ENQUIRE FOR ADMISSION</span>
+                <span>View Timetable</span>
+              </button>
+
+              <button
+                onClick={() => onEnquireClick()}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gold text-midnight font-extrabold text-sm hover:bg-gold-hover active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              >
+                <span>Admission Enquiry</span>
               </button>
             </div>
 

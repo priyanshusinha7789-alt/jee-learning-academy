@@ -18,9 +18,10 @@ export default function Navbar({ onEnquireClick }) {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Courses', href: '#courses' },
-    { label: 'Methodology', href: '#methodology' },
+    { label: 'Timetable', href: '#timetable' },
     { label: 'Faculty', href: '#faculty' },
-    { label: 'Our Approach', href: '#approach' },
+    { label: 'Environment', href: '#gallery' },
+    { label: 'Resources', href: '#resources' },
     { label: 'Contact', href: '#contact' },
   ];
 
