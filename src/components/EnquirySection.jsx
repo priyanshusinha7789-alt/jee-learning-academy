@@ -143,12 +143,12 @@ export default function EnquirySection({ selectedCourseId, onResetCourseSelectio
   };
 
   return (
-    <section id="enquiry" className="py-20 relative bg-cream-subtle overflow-hidden">
+    <section id="enquiry" className="py-20 lg:py-28 relative bg-softBg overflow-hidden border-b border-slate-200">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Box with Orange-to-Blue Accent Gradient border */}
-        <div className="relative rounded-3xl p-1 bg-gradient-to-r from-orange via-electric to-teal shadow-2xl">
+        {/* Main Box with Midnight & Royal Blue border */}
+        <div className="relative rounded-3xl p-1 bg-gradient-to-r from-midnight via-royalBlue to-midnight shadow-2xl">
           <div className="bg-white rounded-[22px] p-6 sm:p-10 lg:p-14">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
@@ -156,49 +156,49 @@ export default function EnquirySection({ selectedCourseId, onResetCourseSelectio
               {/* Left Column */}
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-subtle border border-orange/20 text-orange font-bold text-xs uppercase tracking-wider mb-4">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Bokaro Campus Admissions {ACADEMY_CONFIG.academicYear}</span>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-softBg border border-slate-200 text-royalBlue font-bold text-xs uppercase tracking-wider mb-4">
+                    <Sparkles className="w-3.5 h-3.5 text-royalBlue" />
+                    <span>Haldia Campus Admissions {ACADEMY_CONFIG.academicYear}</span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy tracking-tight leading-tight">
-                    Ready to Take the <br />
-                    <span className="bg-gradient-to-r from-orange to-electric bg-clip-text text-transparent">
-                      Next Step?
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-midnight tracking-tight leading-tight">
+                    Begin Your JEE <br />
+                    <span className="text-royalBlue">
+                      Preparation Journey.
                     </span>
                   </h2>
 
                   <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-                    Tell us what you want to achieve. Our academic team at Haldia Central Campus will confirm batch availability, syllabus schedule, and test series access.
+                    Tell us what you want to achieve. Our academic team at Haldia Central Campus will confirm batch availability, syllabus schedule, and test series access with zero pressure.
                   </p>
                 </div>
 
                 {/* Instant WhatsApp Option Box */}
-                <div className="p-5 rounded-2xl bg-teal-subtle/80 border border-teal/20 space-y-3">
-                  <div className="flex items-center gap-2 text-teal font-extrabold text-sm">
-                    <MessageSquare className="w-5 h-5" />
+                <div className="p-5 rounded-2xl bg-softBg border border-slate-200 space-y-3">
+                  <div className="flex items-center gap-2 text-midnight font-extrabold text-sm">
+                    <MessageSquare className="w-5 h-5 text-royalBlue" />
                     <span>Direct WhatsApp Desk</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Skip waiting for callbacks. Connect directly with the Haldia admissions desk on WhatsApp:
+                    Connect directly with the Haldia admissions desk on WhatsApp for instant batch availability and syllabus details:
                   </p>
                   <a
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-teal text-white font-bold text-xs sm:text-sm shadow-sm hover:bg-teal-hover transition-colors"
+                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-royalBlue text-white font-bold text-xs sm:text-sm shadow-sm hover:bg-royalBlue-hover transition-colors"
                   >
                     <span>Open WhatsApp Chat Directly</span>
                   </a>
-                  <p className="text-[11px] text-slate-400 text-center font-medium">
+                  <p className="text-[11px] text-slate-500 text-center font-medium">
                     Central Admission Desk: {ACADEMY_CONFIG.contact.displayPhone}
                   </p>
                 </div>
 
                 {/* Privacy Assurance */}
                 <div className="text-xs text-slate-500 space-y-1.5 pt-2 border-t border-slate-100">
-                  <div className="font-semibold text-navy flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-teal" />
+                  <div className="font-semibold text-midnight flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-royalBlue" />
                     <span>Student Privacy Guarantee:</span>
                   </div>
                   <p className="leading-normal">
@@ -209,7 +209,7 @@ export default function EnquirySection({ selectedCourseId, onResetCourseSelectio
               </div>
 
               {/* Right Column: Admission Enquiry Form */}
-              <div className="lg:col-span-7 bg-slate-50/70 p-6 sm:p-8 rounded-2xl border border-slate-200/80">
+              <div className="lg:col-span-7 bg-softBg p-6 sm:p-8 rounded-2xl border border-slate-200">
                 
                 {isSubmitted ? (
                   /* Success Notification State */
@@ -453,7 +453,7 @@ export default function EnquirySection({ selectedCourseId, onResetCourseSelectio
                     <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                       <button
                         type="submit"
-                        className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-orange text-white font-bold text-sm shadow-md shadow-orange/25 hover:bg-orange-hover hover:shadow-glow-orange active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-royalBlue text-white font-bold text-sm shadow-md shadow-royalBlue/25 hover:bg-royalBlue-hover active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <span>Submit Admission Enquiry</span>
                         <Send className="w-4 h-4" />
@@ -463,10 +463,10 @@ export default function EnquirySection({ selectedCourseId, onResetCourseSelectio
                         href={generateWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-teal text-white font-bold text-sm hover:bg-teal-hover transition-colors flex items-center justify-center gap-2 shadow-sm"
+                        className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-midnight text-gold font-bold text-sm hover:bg-deepBlue transition-colors flex items-center justify-center gap-2 shadow-sm border border-gold/20"
                       >
-                        <MessageSquare className="w-4 h-4" />
-                        <span>Send on WhatsApp</span>
+                        <MessageSquare className="w-4 h-4 text-gold" />
+                        <span>Chat on WhatsApp</span>
                       </a>
                     </div>
 

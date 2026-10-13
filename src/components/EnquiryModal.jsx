@@ -184,12 +184,12 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
         aria-modal="true"
       >
         {/* Top Decorative Header Accent */}
-        <div className="h-2.5 w-full bg-gradient-to-r from-orange via-electric to-teal" />
+        <div className="h-2.5 w-full bg-gradient-to-r from-midnight via-royalBlue to-gold" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-navy hover:bg-slate-100 transition-colors z-10"
+          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-midnight hover:bg-slate-100 transition-colors z-10 cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -200,27 +200,27 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
           {isSuccess ? (
             /* Automated WhatsApp Dispatch & Confirmation View */
             <div className="text-center py-4 space-y-5 animate-fadeIn">
-              <div className="w-16 h-16 rounded-2xl bg-teal-subtle text-teal flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-16 h-16 rounded-2xl bg-royalBlue/10 text-royalBlue flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
               <div>
-                <span className="px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-[11px] font-extrabold uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-royalBlue/10 text-royalBlue text-[11px] font-extrabold uppercase tracking-wider">
                   Registration Confirmed • Lead Saved
                 </span>
-                <h3 className="text-2xl font-extrabold text-navy mt-2">
+                <h3 className="text-2xl font-extrabold text-midnight mt-2">
                   Faculty Schedule Ready!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-sm mx-auto">
-                  Hi <strong className="text-navy">{lastSubmittedLead?.studentName}</strong>, your batch roadmap for <strong className="text-electric">{currentSelectedCourseObj.title}</strong> has been structured with chapter durations and assigned Ex-IITian faculty.
+                  Hi <strong className="text-midnight">{lastSubmittedLead?.studentName}</strong>, your batch roadmap for <strong className="text-royalBlue">{currentSelectedCourseObj.title}</strong> has been structured with chapter durations and assigned Ex-IITian faculty.
                 </p>
               </div>
 
               {/* Concrete Details Box */}
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs space-y-2 text-slate-700">
-                <div className="font-bold text-navy text-sm border-b pb-1.5 flex justify-between items-center">
+                <div className="font-bold text-midnight text-sm border-b pb-1.5 flex justify-between items-center">
                   <span>Batch Allocation Summary</span>
-                  <span className="text-teal font-bold">{currentSelectedCourseObj.batchBadge}</span>
+                  <span className="text-royalBlue font-bold">{currentSelectedCourseObj.batchBadge}</span>
                 </div>
                 <div><strong>Class Schedule:</strong> {currentSelectedCourseObj.batchSchedule?.regular}</div>
                 <div><strong>Weekend Option:</strong> {currentSelectedCourseObj.batchSchedule?.weekend}</div>
@@ -234,7 +234,7 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
                   href={generatedWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 px-6 rounded-2xl bg-teal text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-teal/30 hover:bg-teal-hover active:scale-95 transition-all animate-bounce-subtle"
+                  className="w-full py-4 px-6 rounded-2xl bg-royalBlue text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-royalBlue/30 hover:bg-royalBlue-hover active:scale-95 transition-all"
                 >
                   <MessageSquare className="w-5 h-5" />
                   <span>Send My Faculty Schedule on WhatsApp</span>
@@ -247,7 +247,7 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
                       onClose();
                       if (onOpenSyllabusModal) onOpenSyllabusModal(formData.preferredCourse);
                     }}
-                    className="flex-1 py-2.5 px-4 rounded-xl border border-electric text-electric font-bold text-xs hover:bg-blue-50 transition-colors flex items-center justify-center gap-1.5"
+                    className="flex-1 py-2.5 px-4 rounded-xl border border-royalBlue text-royalBlue font-bold text-xs hover:bg-blue-50 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download Schedule PDF</span>
@@ -256,7 +256,7 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
                   <button
                     type="button"
                     onClick={onClose}
-                    className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors"
+                    className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors cursor-pointer"
                   >
                     Done
                   </button>
@@ -268,11 +268,11 @@ export default function EnquiryModal({ isOpen, onClose, preselectedCourseId, onS
               
               {/* Modal Title & Value Proposition */}
               <div className="mb-5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-subtle border border-orange/20 text-orange font-bold text-[11px] uppercase tracking-wider mb-2">
-                  <Sparkles className="w-3 h-3" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-softBg border border-slate-200 text-royalBlue font-bold text-[11px] uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3 h-3 text-royalBlue" />
                   <span>Haldia Campus • Academic Session {ACADEMY_CONFIG.academicYear}</span>
                 </div>
-                <h3 className="text-2xl font-extrabold text-navy tracking-tight">
+                <h3 className="text-2xl font-extrabold text-midnight tracking-tight">
                   Enquire & Receive Faculty Schedule
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-1">

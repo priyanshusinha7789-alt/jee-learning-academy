@@ -4,19 +4,19 @@ import { FACULTY_MEMBERS } from '../data/academyData';
 
 export default function Faculty({ onEnquireClick }) {
   return (
-    <section id="faculty" className="py-20 bg-cream-subtle relative">
+    <section id="faculty" className="py-20 lg:py-28 bg-softBg border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-electric uppercase tracking-widest bg-electric-subtle px-3 py-1 rounded-full border border-electric/20 inline-block mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold text-royalBlue uppercase tracking-widest bg-royalBlue/10 px-3.5 py-1.5 rounded-full border border-royalBlue/20 inline-block mb-3">
             Academic Mentorship
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy tracking-tight">
-            Learn from Dedicated Educators
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-midnight tracking-tight">
+            Learn from Dedicated Senior Educators
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
-            Full-time Ex-IITian and subject specialists committed to foundational clarity, continuous encouragement, and high-rank pedagogy.
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            Full-time Ex-IITian and subject specialists committed to foundational clarity, continuous encouragement, and high-rank pedagogy at Haldia Central Campus.
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export default function Faculty({ onEnquireClick }) {
           {FACULTY_MEMBERS.map((faculty) => (
             <div
               key={faculty.id}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5"
+              className="bg-white rounded-3xl border border-slate-200 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
                 {/* Photo & Background Composition */}
@@ -36,11 +36,11 @@ export default function Faculty({ onEnquireClick }) {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/30 to-transparent" />
                   
                   {/* Floating role pill */}
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-navy text-xs font-bold shadow-sm">
+                    <span className="px-3 py-1 rounded-full bg-midnight/90 backdrop-blur-md text-gold text-xs font-bold border border-gold/20 shadow-sm">
                       {faculty.role.split('&')[0]}
                     </span>
                   </div>
@@ -50,7 +50,7 @@ export default function Faculty({ onEnquireClick }) {
                     <h3 className="text-2xl font-extrabold tracking-tight">
                       {faculty.name}
                     </h3>
-                    <div className="text-xs text-orange-light font-medium mt-0.5">
+                    <div className="text-xs text-gold font-medium mt-0.5">
                       {faculty.credentials}
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export default function Faculty({ onEnquireClick }) {
                       {faculty.subjects.map((sub, idx) => (
                         <span
                           key={idx}
-                          className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium"
+                          className="px-2.5 py-1 rounded-lg bg-softBg text-slate-700 text-xs font-medium border border-slate-200"
                         >
                           {sub}
                         </span>
@@ -82,14 +82,14 @@ export default function Faculty({ onEnquireClick }) {
               </div>
 
               {/* Bottom Card Footer */}
-              <div className="px-6 py-4 bg-slate-50/80 border-t border-slate-100 text-xs font-semibold flex items-center justify-between">
-                <span className="text-teal font-bold flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4" />
+              <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 text-xs font-semibold flex items-center justify-between">
+                <span className="text-midnight font-bold flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-royalBlue" />
                   <span>Daily Doubt Cabin Presence</span>
                 </span>
                 <button
                   onClick={() => onEnquireClick()}
-                  className="text-electric font-bold hover:underline"
+                  className="text-royalBlue font-bold hover:underline cursor-pointer"
                 >
                   Book 1:1 Session
                 </button>

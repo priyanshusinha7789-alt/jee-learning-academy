@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ImpactCounterStrip from './components/ImpactCounterStrip';
-import Highlights from './components/Highlights';
+import AboutSection from './components/AboutSection';
 import Courses from './components/Courses';
-import TopAchievers from './components/TopAchievers';
 import WhyChooseUs from './components/WhyChooseUs';
+import LearningMethodology from './components/LearningMethodology';
 import Faculty from './components/Faculty';
-import Results from './components/Results';
+import ApproachToJEE from './components/ApproachToJEE';
 import EnquirySection from './components/EnquirySection';
 import ContactFooter from './components/ContactFooter';
 import EnquiryModal from './components/EnquiryModal';
@@ -93,32 +93,34 @@ function App() {
         {/* Section: Animated Impact Counter Strip */}
         <ImpactCounterStrip />
 
-        {/* Section: Trust and Highlights */}
-        <Highlights />
+        {/* Section B: About Us & Academic Philosophy */}
+        <AboutSection />
 
-        {/* Section: Courses with Interactive Timeline & Batch Badges */}
+        {/* Section C: Courses with Interactive Timeline & Batch Badges */}
         <Courses 
           onSelectCourse={(courseId) => openEnquiryModal(courseId)} 
           onOpenTimelineModal={(courseId) => openSyllabusModal(courseId)}
         />
 
-        {/* Section: Top Achievers / Results Gallery */}
-        <TopAchievers 
-          onEnquireClick={(courseId) => openEnquiryModal(courseId)} 
-        />
-
-        {/* Section: Why Choose Us (Pedagogy & 4-Stage Cycle) */}
+        {/* Section D: Why Choose Us (Pedagogy & 4-Stage Cycle) */}
         <WhyChooseUs 
           onEnquireClick={() => openEnquiryModal()} 
         />
 
-        {/* Section: Faculty with Professional Portraits & Ex-IITian Credentials */}
+        {/* Section E: 5-Stage Systematic Learning Methodology */}
+        <LearningMethodology 
+          onEnquireClick={() => openEnquiryModal()}
+        />
+
+        {/* Section F: Faculty with Verified Senior Educator Credentials */}
         <Faculty 
           onEnquireClick={() => openEnquiryModal()} 
         />
 
-        {/* Section: Results, Progress Metrics & Verified Testimonials */}
-        <Results />
+        {/* Section G: Our Approach to JEE Preparation (6 Pillars & Diagnostic Session) */}
+        <ApproachToJEE 
+          onEnquireClick={() => openEnquiryModal()}
+        />
 
         {/* Section: Comprehensive On-Page Admission Enquiry */}
         <EnquirySection 

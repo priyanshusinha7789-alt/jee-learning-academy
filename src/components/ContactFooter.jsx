@@ -89,12 +89,12 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
               </div>
 
               {/* Address */}
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-navy-light/70 border border-slate-700/60">
-                <div className="w-11 h-11 rounded-xl bg-slate-700 text-slate-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-deepBlue/70 border border-slate-700/60">
+                <div className="w-11 h-11 rounded-xl bg-slate-800 text-gold flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Bokaro Campus Address</div>
+                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Haldia Campus Address</div>
                   <p className="text-sm font-medium text-slate-200 mt-1 leading-relaxed">
                     {ACADEMY_CONFIG.contact.address.full}
                   </p>
@@ -103,7 +103,7 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
                     href={ACADEMY_CONFIG.contact.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-electric-light hover:underline mt-2 font-bold"
+                    className="inline-flex items-center gap-1 text-xs text-gold hover:underline mt-2 font-bold"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -112,8 +112,8 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
               </div>
 
               {/* Hours */}
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-navy-light/70 border border-slate-700/60">
-                <div className="w-11 h-11 rounded-xl bg-slate-700 text-slate-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-deepBlue/70 border border-slate-700/60">
+                <div className="w-11 h-11 rounded-xl bg-slate-800 text-gold flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -130,7 +130,7 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
           {/* Right Column: Frequently Asked Questions */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="text-xs font-bold text-electric-light uppercase tracking-widest bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-500/20 inline-block mb-4">
+              <span className="text-xs font-bold text-royalBlue uppercase tracking-widest bg-royalBlue/20 px-3.5 py-1.5 rounded-full border border-royalBlue/30 inline-block mb-4">
                 Help & Clarifications
               </span>
               <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -145,24 +145,31 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
               {FAQS.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-700/80 bg-navy-light/60 overflow-hidden transition-all duration-200"
+                  className="rounded-2xl border border-slate-700/80 bg-deepBlue/60 overflow-hidden transition-all duration-200"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 hover:bg-navy-light/90 transition-colors"
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 hover:bg-deepBlue/90 transition-colors cursor-pointer"
                     aria-expanded={openFaq === idx}
+                    aria-controls={`faq-answer-${idx}`}
+                    id={`faq-btn-${idx}`}
                   >
                     <span className="text-base sm:text-lg font-bold text-white leading-snug">
                       {faq.q}
                     </span>
                     {openFaq === idx ? (
-                      <ChevronUp className="w-5 h-5 text-orange flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-gold flex-shrink-0" />
                     ) : (
                       <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
                     )}
                   </button>
                   {openFaq === idx && (
-                    <div className="px-5 pb-6 pt-2 text-sm sm:text-base text-slate-300 leading-loose border-t border-slate-700/50 bg-navy/40">
+                    <div 
+                      id={`faq-answer-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${idx}`}
+                      className="px-5 pb-6 pt-2 text-sm sm:text-base text-slate-300 leading-loose border-t border-slate-700/50 bg-midnight/60"
+                    >
                       {faq.a}
                     </div>
                   )}
@@ -171,14 +178,14 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
             </div>
 
             {/* Quick Registration Callout */}
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-navy-light to-slate-800 border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-deepBlue to-midnight border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
               <div>
                 <div className="text-base font-bold text-white">Have a specific syllabus question or batch query?</div>
                 <div className="text-xs text-slate-400 mt-1">Our academic coordinators are available at Haldia Central Campus.</div>
               </div>
               <button
                 onClick={() => onEnquireClick()}
-                className="px-5 py-2.5 rounded-xl bg-orange text-white text-xs sm:text-sm font-bold hover:bg-orange-hover transition-colors whitespace-nowrap shadow-sm"
+                className="px-6 py-3 rounded-xl bg-royalBlue text-white text-xs sm:text-sm font-bold hover:bg-royalBlue-hover transition-colors whitespace-nowrap shadow-sm cursor-pointer"
               >
                 Register for Batch
               </button>
@@ -193,12 +200,12 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
           {/* Col 1: Brand & Logo */}
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-navy-light border border-slate-700 flex items-center justify-center text-orange shadow-sm">
-                <GraduationCap className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-deepBlue border border-slate-700 flex items-center justify-center text-gold shadow-sm">
+                <GraduationCap className="w-6 h-6 text-gold" />
               </div>
               <div>
                 <div className="font-extrabold text-lg tracking-tight text-white">
-                  HALDIA <span className="text-electric-light">LEARNING</span>
+                  HALDIA <span className="text-gold">LEARNING</span>
                 </div>
                 <div className="text-[10px] font-semibold tracking-widest text-slate-400 uppercase">
                   ACADEMY • HALDIA
@@ -217,11 +224,12 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-400 leading-relaxed">
               <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About & Philosophy</a></li>
               <li><a href="#courses" className="hover:text-white transition-colors">Course Tracks & Batches</a></li>
-              <li><a href="#achievers" className="hover:text-white transition-colors">Top Achievers Gallery</a></li>
-              <li><a href="#faculty" className="hover:text-white transition-colors">Ex-IITian Educators</a></li>
-              <li><a href="#why-us" className="hover:text-white transition-colors">Pedagogy & 4-Stage Cycle</a></li>
-              <li><a href="#results" className="hover:text-white transition-colors">Results & Milestones</a></li>
+              <li><a href="#why-us" className="hover:text-white transition-colors">Why Choose HLA</a></li>
+              <li><a href="#methodology" className="hover:text-white transition-colors">5-Stage Methodology</a></li>
+              <li><a href="#faculty" className="hover:text-white transition-colors">Senior Educators</a></li>
+              <li><a href="#approach" className="hover:text-white transition-colors">Our Approach to JEE</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Campus Location & Contact</a></li>
             </ul>
           </div>
@@ -247,7 +255,7 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
               Haldia Admissions
             </h4>
-            <div className="p-4 rounded-2xl bg-navy-light/70 border border-slate-700/60 text-xs text-slate-300 space-y-2 leading-relaxed">
+            <div className="p-4 rounded-2xl bg-deepBlue/70 border border-slate-700/60 text-xs text-slate-300 space-y-2 leading-relaxed">
               <div className="font-bold text-white">Academic Session {ACADEMY_CONFIG.academicYear}</div>
               <p className="text-slate-400">
                 Direct walk-in registration available Monday to Saturday at our Haldia Central Campus.
@@ -255,7 +263,7 @@ export default function ContactFooter({ onEnquireClick, onOpenAdminLeads }) {
               <div className="pt-2">
                 <button
                   onClick={() => onEnquireClick()}
-                  className="w-full py-2 px-3 rounded-lg bg-electric text-white text-xs font-bold hover:bg-electric-hover transition-colors"
+                  className="w-full py-2.5 px-3 rounded-lg bg-royalBlue text-white text-xs font-bold hover:bg-royalBlue-hover transition-colors cursor-pointer"
                 >
                   Register for Upcoming Batch
                 </button>

@@ -1,202 +1,221 @@
-import React from 'react';
-import { ArrowRight, BookOpen, CheckCircle2, Sparkles, Compass, ShieldCheck, Award, Star, Flame } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowDown, ArrowRight, GraduationCap, CheckCircle2, ShieldCheck, Sparkles, BookOpen } from 'lucide-react';
 import { ACADEMY_CONFIG } from '../data/academyData';
 
 export default function Hero({ onExploreCourses, onEnquireClick }) {
-  return (
-    <section id="home" className="relative overflow-hidden pt-6 pb-16 lg:pt-14 lg:pb-24 bg-gradient-to-b from-cream-subtle via-white to-cream/30">
-      
-      {/* Decorative gradient ambient blobs */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none overflow-hidden opacity-60">
-        <div className="absolute -top-24 left-10 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl" />
-        <div className="absolute top-10 right-10 w-80 h-80 bg-orange-100/50 rounded-full blur-3xl" />
-        <div className="absolute top-32 left-1/3 w-64 h-64 bg-teal-100/40 rounded-full blur-3xl" />
-      </div>
+  const [animatedIn, setAnimatedIn] = useState(false);
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  useEffect(() => {
+    // Staggered reveal sequence on load
+    const timer = setTimeout(() => {
+      setAnimatedIn(true);
+    }, 80);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section 
+      id="home" 
+      className="relative min-h-[92vh] lg:min-h-[96vh] flex flex-col justify-between overflow-hidden bg-midnight text-white pt-10 pb-12 lg:pt-16 lg:pb-16"
+      style={{
+        background: 'radial-gradient(ellipse 90% 60% at 50% 10%, #172A4A 0%, #101C35 75%, #0A1224 100%)'
+      }}
+    >
+      {/* Background Academic Grid & Subtle Coordinate Elements */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.07] bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px]" />
+      
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-royalBlue/20 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-gold/10 rounded-full blur-[140px] pointer-events-none" />
+
+      {/* Main Container */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Headline and Call-to-actions */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          {/* Left Column: Headline and CTAs */}
+          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
             
-            {/* Admissions Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-subtle border border-orange/30 text-orange font-bold text-xs uppercase tracking-wider shadow-sm">
-              <span className="w-2.5 h-2.5 rounded-full bg-orange animate-ping" />
-              <span>ADMISSIONS OPEN • HALDIA CAMPUS {ACADEMY_CONFIG.academicYear}</span>
+            {/* Step 1 & 2: Institute Badge & Academic Session */}
+            <div 
+              className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-700 ${
+                animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+              }`}
+            >
+              <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <span className="text-xs font-semibold tracking-wider text-slate-200 uppercase">
+                {ACADEMY_CONFIG.name} • ADMISSIONS {ACADEMY_CONFIG.academicYear}
+              </span>
             </div>
 
-            {/* Primary Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy tracking-tight leading-[1.12]">
-              Your Ambition. <br className="hidden sm:inline" />
-              Our Guidance. <br />
-              <span className="bg-gradient-to-r from-electric via-blue-600 to-indigo-600 bg-clip-text text-transparent underline decoration-orange decoration-wavy decoration-2">
-                Your Success.
+            {/* Step 3: Large Editorial Headline */}
+            <h1 
+              className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08] text-white transition-all duration-700 delay-150 ${
+                animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              YOUR IIT-JEE <br />
+              <span className="bg-gradient-to-r from-white via-slate-100 to-gold bg-clip-text text-transparent">
+                JOURNEY STARTS HERE.
               </span>
             </h1>
 
-            {/* Supporting Text */}
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Personalised coaching, expert guidance and a learning environment designed to help students achieve their academic goals in Haldia.
+            {/* Step 4: Supporting Copy */}
+            <p 
+              className={`text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed transition-all duration-700 delay-300 ${
+                animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Build strong concepts. Develop problem-solving skills. Prepare with purpose. Personalised coaching and disciplined mentorship designed for rigorous academic excellence.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            {/* Step 5: Primary & Secondary CTAs */}
+            <div 
+              className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 transition-all duration-700 delay-500 ${
+                animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
               <button
                 onClick={onExploreCourses}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-electric text-white font-bold text-base shadow-md shadow-electric/25 hover:bg-electric-hover hover:shadow-glow-blue active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-royalBlue text-white font-bold text-sm sm:text-base shadow-lg shadow-royalBlue/30 hover:bg-royalBlue-hover hover:shadow-glow-blue active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <span>Explore Our Courses</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>EXPLORE OUR PROGRAMS</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={() => onEnquireClick()}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-orange text-white font-bold text-base shadow-md shadow-orange/25 hover:bg-orange-hover hover:shadow-glow-orange active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm sm:text-base hover:bg-white/15 hover:border-gold/60 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Enquire for Admission</span>
+                <span>ENQUIRE FOR ADMISSION</span>
               </button>
             </div>
 
-            {/* Trust statement */}
-            <div className="pt-4 border-t border-slate-200/70 inline-flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm font-semibold text-slate-600">
-              <div className="flex items-center gap-1.5 text-navy">
-                <CheckCircle2 className="w-4 h-4 text-teal" />
-                <span>Learn Better</span>
+            {/* Authentic Academic Commitments */}
+            <div 
+              className={`pt-5 border-t border-white/10 inline-flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs sm:text-sm font-medium text-slate-300 transition-all duration-700 delay-700 ${
+                animatedIn ? 'opacity-100 translate-y-0' : 'opacity-0'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
+                <span>Concept-First Derivations</span>
               </div>
-              <span className="text-slate-300">•</span>
-              <div className="flex items-center gap-1.5 text-navy">
-                <ShieldCheck className="w-4 h-4 text-electric" />
-                <span>Grow Confidently</span>
+              <span className="text-white/20 hidden sm:inline">•</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
+                <span>Daily Practice Problems</span>
               </div>
-              <span className="text-slate-300">•</span>
-              <div className="flex items-center gap-1.5 text-navy">
-                <Sparkles className="w-4 h-4 text-orange" />
-                <span>Achieve More</span>
+              <span className="text-white/20 hidden sm:inline">•</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
+                <span>Individual Doubt Cabins</span>
               </div>
-            </div>
-
-            {/* Quick rating snippet */}
-            <div className="pt-1 flex items-center justify-center lg:justify-start gap-3 text-xs text-slate-500">
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400" />
-                ))}
-              </div>
-              <span className="font-semibold text-slate-700">4.9 / 5 Rating</span>
-              <span className="text-slate-300">|</span>
-              <span>Based on 350+ Student & Parent Reviews</span>
             </div>
 
           </div>
 
-          {/* Right Column: High Quality Educational Visual & Floating Statistic Cards */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            
-            <div className="relative w-full max-w-md sm:max-w-lg">
+          {/* Right Column: Academic Vector / Mathematical Scene */}
+          <div 
+            className={`lg:col-span-5 relative flex justify-center transition-all duration-1000 delay-500 ${
+              animatedIn ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="relative w-full max-w-md bg-gradient-to-br from-deepBlue via-midnight to-deepBlue/90 rounded-3xl p-6 sm:p-7 border border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl">
               
-              {/* Backing decorative glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-electric/20 via-teal/15 to-orange/20 rounded-3xl filter blur-xl transform scale-95" />
+              {/* Card Header Bar */}
+              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
+                </div>
+                <span className="text-[11px] font-mono tracking-widest text-gold uppercase px-2.5 py-0.5 rounded bg-gold/10 border border-gold/20">
+                  {ACADEMY_CONFIG.campusLocationName}
+                </span>
+              </div>
 
-              {/* Central Card with Stylized Educational Classroom Graphic */}
-              <div className="relative bg-white rounded-3xl p-6 sm:p-7 shadow-card border border-slate-100 overflow-hidden">
-                
-                {/* Header ribbon inside illustration */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                  </div>
-                  <span className="text-xs font-bold text-slate-600 uppercase tracking-wider bg-slate-100 px-3 py-1 rounded-full">
-                    Haldia Central Campus Classroom
-                  </span>
+              {/* Mathematical / Physics Conceptual Representation */}
+              <div className="my-5 p-4 rounded-2xl bg-midnight/90 border border-white/5 relative overflow-hidden">
+                <div className="flex justify-between items-center text-xs font-mono text-slate-400 mb-2">
+                  <span>∫ f(x)dx • ∇ × E = -∂B/∂t</span>
+                  <span className="text-gold font-bold">First Principles</span>
                 </div>
 
-                {/* Modern Educational SVG Scene */}
-                <div className="my-4 p-4 rounded-2xl bg-gradient-to-br from-navy via-navy to-navy-light text-white relative overflow-hidden shadow-inner">
-                  {/* Subtle chalkboard grid */}
-                  <div className="absolute inset-0 opacity-10 bg-dot-pattern-light" />
+                {/* Vector Geometry Canvas */}
+                <svg className="w-full h-44 my-2" viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Coordinate Axes */}
+                  <line x1="30" y1="150" x2="330" y2="150" stroke="#334155" strokeWidth="1.5" strokeDasharray="3 3"/>
+                  <line x1="50" y1="20" x2="50" y2="160" stroke="#334155" strokeWidth="1.5" strokeDasharray="3 3"/>
                   
-                  {/* Subject Badges */}
-                  <div className="flex justify-between items-center text-xs font-mono text-teal">
-                    <span>∫ f(x)dx • ΔE = hν • PV=nRT</span>
-                    <span className="bg-electric/30 text-white font-bold px-2 py-0.5 rounded text-[10px]">
-                      Live Batch 2026
-                    </span>
-                  </div>
+                  {/* Harmonic Wave Function */}
+                  <path 
+                    d="M 50 100 Q 110 30 170 100 T 290 100" 
+                    stroke="#D9AD55" 
+                    strokeWidth="2.5" 
+                    fill="none"
+                  />
+                  
+                  {/* Vector Tangent */}
+                  <line x1="170" y1="100" x2="230" y2="35" stroke="#2855A6" strokeWidth="2.5" strokeLinecap="round"/>
+                  <polygon points="230,35 220,40 226,49" fill="#2855A6"/>
+                  
+                  {/* Integral Shaded Area */}
+                  <path 
+                    d="M 110 65 Q 140 85 170 100 L 170 150 L 110 150 Z" 
+                    fill="#D9AD55" 
+                    fillOpacity="0.12"
+                  />
 
-                  {/* Visual Illustration: Classroom Mentorship */}
-                  <svg className="w-full h-44 sm:h-52 my-2" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="20" width="360" height="120" rx="10" fill="#0B132B" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3 3"/>
-                    <path d="M 40 50 Q 80 25 120 50 T 200 50" stroke="#14B8A6" strokeWidth="2" fill="none"/>
-                    <text x="40" y="80" fill="#94A3B8" fontSize="12" fontFamily="monospace">Newton's Laws • Calculus • Organic Synthesis</text>
-                    <text x="40" y="105" fill="#FF7A30" fontSize="13" fontWeight="bold">Step 1: Concept Intuition → Level 3 Mastery</text>
-                    
-                    {/* Teacher / Mentor */}
-                    <circle cx="280" cy="65" r="16" fill="#FF7A30"/>
-                    <path d="M 260 115 C 260 90, 300 90, 300 115 Z" fill="#FF7A30"/>
-                    <line x1="280" y1="85" x2="245" y2="70" stroke="#FF7A30" strokeWidth="3" strokeLinecap="round"/>
+                  {/* Mathematical Annotations */}
+                  <text x="60" y="45" fill="#94A3B8" fontSize="11" fontFamily="monospace">v(t) = dx/dt</text>
+                  <text x="180" y="30" fill="#93C5FD" fontSize="11" fontFamily="monospace">F_net = m·a</text>
+                  <text x="180" y="140" fill="#E2E8F0" fontSize="11" fontFamily="monospace">Δx = ∫ v dt</text>
+                  <circle cx="170" cy="100" r="4" fill="#D9AD55" />
+                </svg>
 
-                    {/* Classroom Desks and Engaged Students */}
-                    <rect x="40" y="170" width="140" height="40" rx="6" fill="#1E293B" stroke="#334155"/>
-                    <circle cx="80" cy="155" r="14" fill="#2563EB"/>
-                    <circle cx="140" cy="155" r="14" fill="#14B8A6"/>
-                    <path d="M 68 185 C 68 175, 92 175, 92 185 Z" fill="#2563EB"/>
-                    <path d="M 128 185 C 128 175, 152 175, 152 185 Z" fill="#14B8A6"/>
-
-                    <rect x="220" y="170" width="140" height="40" rx="6" fill="#1E293B" stroke="#334155"/>
-                    <circle cx="260" cy="155" r="14" fill="#F59E0B"/>
-                    <circle cx="320" cy="155" r="14" fill="#3B82F6"/>
-                    <path d="M 248 185 C 248 175, 272 175, 272 185 Z" fill="#F59E0B"/>
-                    <path d="M 308 185 C 308 175, 332 175, 332 185 Z" fill="#3B82F6"/>
-
-                    <circle cx="200" cy="70" r="12" fill="#F59E0B" fillOpacity="0.2"/>
-                    <circle cx="200" cy="70" r="6" fill="#F59E0B"/>
-                  </svg>
-
-                  <div className="flex items-center justify-between text-xs text-slate-300 pt-2 border-t border-slate-700/50">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-                      1-on-1 Faculty Doubt Desks
-                    </span>
-                    <span className="font-semibold text-orange-light">Bokaro CBT Testing Lab</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between pt-2 text-xs text-slate-600 font-semibold">
-                  <span>Admissions Open for All Classes</span>
-                  <span className="text-electric font-bold">Foundation • Secondary • JEE/NEET</span>
+                <div className="flex items-center justify-between text-xs text-slate-300 pt-2 border-t border-white/5">
+                  <span className="flex items-center gap-1.5 text-slate-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                    Conceptual Derivation
+                  </span>
+                  <span className="font-mono text-slate-400">Step 01 → Mastery</span>
                 </div>
               </div>
 
-              {/* Floating Stat Card 1: Top Left */}
-              <div className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card-hover border border-slate-100 flex items-center gap-3 z-10">
-                <div className="w-10 h-10 rounded-xl bg-orange-subtle text-orange flex items-center justify-center font-bold">
-                  <Compass className="w-5 h-5" />
+              {/* Institute Core Highlights */}
+              <div className="grid grid-cols-2 gap-3 text-left">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                  <div className="text-lg font-bold text-white">35 Max</div>
+                  <div className="text-[11px] text-slate-400">Students / Batch</div>
                 </div>
-                <div>
-                  <div className="text-xs font-extrabold text-navy">Ex-IITian Mentorship</div>
-                  <div className="text-[11px] text-slate-500">First-principles teaching</div>
-                </div>
-              </div>
-
-              {/* Floating Stat Card 2: Bottom Right */}
-              <div className="absolute -bottom-5 -right-3 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card-hover border border-slate-100 flex items-center gap-3 z-10">
-                <div className="w-10 h-10 rounded-xl bg-teal-subtle text-teal flex items-center justify-center font-bold">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-navy">Daily Doubt Hours</div>
-                  <div className="text-[11px] text-slate-500">10:00 AM – 7:30 PM</div>
+                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                  <div className="text-lg font-bold text-gold">10 AM – 7:30 PM</div>
+                  <div className="text-[11px] text-slate-400">Daily Doubt Cabins</div>
                 </div>
               </div>
 
             </div>
-
           </div>
 
         </div>
       </div>
+
+      {/* Step 7: Subtle Scroll Indicator */}
+      <div 
+        className={`max-w-7xl mx-auto px-4 w-full pt-8 flex items-center justify-center transition-all duration-700 delay-1000 ${
+          animatedIn ? 'opacity-80' : 'opacity-0'
+        }`}
+      >
+        <button 
+          onClick={onExploreCourses}
+          className="flex flex-col items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition-colors cursor-pointer group"
+          aria-label="Scroll to explore academic courses"
+        >
+          <span className="tracking-wider uppercase text-[10px]">Scroll to explore</span>
+          <ArrowDown className="w-4 h-4 text-gold group-hover:translate-y-1 transition-transform animate-bounce" />
+        </button>
+      </div>
+
     </section>
   );
 }

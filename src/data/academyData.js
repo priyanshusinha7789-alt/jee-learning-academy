@@ -38,32 +38,32 @@ export const ACADEMY_CONFIG = {
 
 export const IMPACT_METRICS = [
   {
-    id: "selections",
-    value: "1,200+",
-    label: "Total Selections",
-    subtext: "Across IITs, NITs, BITS & Top Medical Colleges",
-    icon: "Award"
+    id: "batch-limit",
+    value: "35 Max",
+    label: "Students Per Batch",
+    subtext: "Strict ceiling for individual faculty attention",
+    icon: "Users"
   },
   {
-    id: "success-rate",
-    value: "98.4%",
-    label: "Board & Entrance Success",
-    subtext: "Consistent 90%+ in Board Exams & Cutoff Cleared",
-    icon: "TrendingUp"
+    id: "syllabus-plan",
+    value: "100%",
+    label: "Timeline Adherence",
+    subtext: "Pre-published chapter days & triple revision",
+    icon: "Calendar"
   },
   {
-    id: "top-airs",
-    value: "15+",
-    label: "Top 100 All India Ranks",
-    subtext: "Proven national-level top rank pedagogy",
-    icon: "Sparkles"
-  },
-  {
-    id: "doubt-support",
-    value: "24/7",
-    label: "Doubt Resolution Hub",
-    subtext: "On-campus daily desk & digital mentor support",
+    id: "doubt-desks",
+    value: "Daily",
+    label: "Faculty Doubt Cabins",
+    subtext: "Permanent on-campus mentors: 10 AM – 7:30 PM",
     icon: "Clock"
+  },
+  {
+    id: "cbt-tests",
+    value: "Bi-Weekly",
+    label: "CBT Mock Simulations",
+    subtext: "National pattern testing with error log analysis",
+    icon: "TrendingUp"
   }
 ];
 
@@ -257,80 +257,104 @@ export const COURSES = [
   }
 ];
 
-export const TOP_ACHIEVERS = [
+// Section E — Systematic 5-Step Learning Methodology
+export const METHODOLOGY_STEPS = [
   {
-    id: "ach-1",
-    name: "Sourav Gangopadhyay",
-    category: "JEE Advanced",
-    rank: "AIR 42",
-    exam: "JEE Advanced 2025",
-    college: "IIT Bombay — Computer Science & Eng.",
-    score: "318 / 360",
-    quote: "HLA's physics problem sets and 1-on-1 doubt sessions at Haldia Central Campus completely transformed how I approached multi-concept JEE Advanced problems.",
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-orange text-white"
+    step: "01",
+    title: "Understand the Concept",
+    subtitle: "First-Principles Derivation",
+    description: "Build deep intuitive understanding from physical foundations rather than formula memorization. Every topic begins with the fundamental 'why', establishing rigorous conceptual clarity before attempting numeric drills.",
+    icon: "Lightbulb",
+    highlights: ["Physical models & derivations", "Geometric proofs & visual intuition", "Zero rote memorization"]
   },
   {
-    id: "ach-2",
-    name: "Ananya Mukherjee",
-    category: "NEET / Olympiad",
-    rank: "AIR 118 (695/720)",
-    exam: "NEET-UG 2025",
-    college: "AIIMS / Top Government Medical College",
-    score: "695 / 720",
-    quote: "NCERT line-by-line biology drills and weekly full-length OMR mock tests removed all exam anxiety before the actual NEET exam.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-teal text-white"
+    step: "02",
+    title: "Solve Guided Examples",
+    subtitle: "Faculty Cognitive Modeling",
+    description: "Mentors break down multi-layered benchmark problems live in class, demonstrating how experienced IITians analyze constraints, isolate variables, and select the most elegant solving trajectory.",
+    icon: "Compass",
+    highlights: ["Question triage & breakdown", "Alternative solution methods", "Time-saving analytical patterns"]
   },
   {
-    id: "ach-3",
-    name: "Rohan Das",
-    category: "JEE Main",
-    rank: "99.94 Percentile",
-    exam: "JEE Main 2025",
-    college: "IIT Kharagpur — Electronics & ECE",
-    score: "282 / 300 (Math: 100/100)",
-    quote: "The speed-building CBT test platform in Haldia gave me the exact exam temperament needed to score a 100 percentile in Mathematics.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-electric text-white"
+    step: "03",
+    title: "Practise Problems",
+    subtitle: "Daily Practice Problem (DPP) Routine",
+    description: "Every classroom session is paired with 15–20 graded problems. Problems progress systematically from fundamental board level to multi-concept JEE Advanced single/multi-correct challenges.",
+    icon: "Layers",
+    highlights: ["15–20 daily curated problems", "Graded Tier-1 to Tier-3 difficulty", "Monitored homework submission"]
   },
   {
-    id: "ach-4",
-    name: "Priyanshu Pal",
-    category: "JEE Advanced",
-    rank: "AIR 215",
-    exam: "JEE Advanced 2025",
-    college: "IIT Delhi — Electrical Engineering",
-    score: "294 / 360",
-    quote: "Teachers stay back till 8 PM every evening in the doubt cabins until your last doubt is thoroughly resolved. That culture is unmatched.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-orange text-white"
+    step: "04",
+    title: "Analyse Mistakes",
+    subtitle: "Error Log & Weak-Spot Diagnostics",
+    description: "Every student maintains an Error Register. Mistakes are categorized into conceptual gaps, calculation errors, or time traps, allowing precise remedial targeting in faculty doubt cabins.",
+    icon: "Search",
+    highlights: ["Personalized error log journal", "Conceptual vs. calculation diagnosis", "Weekly faculty cabin review"]
   },
   {
-    id: "ach-5",
-    name: "Sneha Roy",
-    category: "JEE Main",
-    rank: "99.82 Percentile",
-    exam: "JEE Main 2025",
-    college: "NIT — Computer Science",
-    score: "274 / 300",
-    quote: "The personalized mentorship and test analytics pinpointed exactly where I was losing marks in organic chemistry. Results followed effortlessly.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-electric text-white"
-  },
-  {
-    id: "ach-6",
-    name: "Arpan Mondal",
-    category: "NEET / Olympiad",
-    rank: "AIR 410 (682/720)",
-    exam: "NEET-UG 2025 & KVPY Fellow",
-    college: "Premier Medical College / IISc Bangalore Offer",
-    score: "682 / 720",
-    quote: "From foundation classes in Class 9 to cracking NEET and KVPY, HLA educators at Haldia treated my goal like their personal mission.",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=400",
-    badgeColor: "bg-teal text-white"
+    step: "05",
+    title: "Revise and Improve",
+    subtitle: "Triple-Cycle Academic Reinforcement",
+    description: "Syllabi are calibrated to conclude with 4 months of buffer for three structured revision cycles, chapter-level synoptic formula sheets, and full-length CBT mock tests simulating actual test-day stress.",
+    icon: "Sparkles",
+    highlights: ["3 structured revision passes", "Synoptic formula compendiums", "Full-length CBT mock simulations"]
   }
 ];
+
+// Section G — Authentic Institutional Approach to JEE Preparation (Replacing unverified rank claims)
+export const OUR_APPROACH_ITEMS = [
+  {
+    id: "first-principles",
+    title: "Concept-First Mathematical Rigor",
+    headline: "Derivations Over Blind Formulas",
+    description: "Real problem-solving agility emerges when students comprehend the physics and mathematics behind formulas. When facing novel multi-concept questions in JEE Advanced, conceptual grounding enables independent deduction.",
+    badge: "Pillar 01",
+    icon: "Lightbulb"
+  },
+  {
+    id: "graded-taxonomy",
+    title: "Graded Problem Taxonomy",
+    headline: "Tier-1 to Tier-3 Scaffolded Learning",
+    description: "Problem sets are rigorously categorized from foundational concept checks to multi-chapter synthesis. Students build mastery progressively without cognitive fatigue or premature frustration.",
+    badge: "Pillar 02",
+    icon: "Layers"
+  },
+  {
+    id: "transparent-timeline",
+    title: "Pre-Committed Chapter Timelines",
+    headline: "Guaranteed Day Allocations & Zero Backlog",
+    description: "Every course operates on a published academic calendar specifying exact chapter days, lecture hours, and milestone assessments. Both parents and students track progress transparently.",
+    badge: "Pillar 03",
+    icon: "Calendar"
+  },
+  {
+    id: "doubt-cabins",
+    title: "Permanent Faculty Doubt Desks",
+    headline: "1-on-1 Academic Support from 10 AM to 7:30 PM",
+    description: "Full-time faculty mentors remain on-campus in dedicated cabins every weekday. Students receive patient, personal doubt resolution on homework problems without waiting in overcrowded queues.",
+    badge: "Pillar 04",
+    icon: "Clock"
+  },
+  {
+    id: "cbt-simulation",
+    title: "National Pattern CBT Computer Lab",
+    headline: "Exam Temperament & Negative-Mark Mitigation",
+    description: "Our dedicated on-campus computer lab simulates the exact National Testing Agency CBT user interface, training students to control adrenaline, manage sectional time, and eliminate negative marking.",
+    badge: "Pillar 05",
+    icon: "Award"
+  },
+  {
+    id: "batch-intimacy",
+    title: "Strict 35-Student Batch Ceiling",
+    headline: "Individual Accountability in Every Lecture",
+    description: "We enforce an uncompromising cap of 35 students per batch. Educators know each student by name, monitor homework completion personally, and notice whenever an individual needs extra encouragement.",
+    badge: "Pillar 06",
+    icon: "Users"
+  }
+];
+
+// Fallback alias for backward-compatibility
+export const TOP_ACHIEVERS = [];
 
 export const WHY_CHOOSE_ITEMS = [
   {

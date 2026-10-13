@@ -34,19 +34,18 @@ export default function SyllabusModal({ courseId, isOpen, onClose, onEnquireClic
         format: 'a4'
       });
 
-      // Palette
-      const navy = [20, 33, 61];     // #14213D
-      const electric = [37, 99, 235]; // #2563EB
-      const orange = [255, 122, 48];  // #FF7A30
-      const teal = [20, 184, 166];    // #14B8A6
+      // Palette: Midnight navy, Royal blue, Warm gold, and slate
+      const midnight = [16, 28, 53];   // #101C35
+      const royalBlue = [40, 85, 166]; // #2855A6
+      const gold = [217, 173, 85];     // #D9AD55
       const slate = [100, 116, 139];
 
       // Page 1 Header Banner
-      doc.setFillColor(...navy);
+      doc.setFillColor(...midnight);
       doc.rect(0, 0, 210, 36, 'F');
 
-      // Top Orange Accent Stripe
-      doc.setFillColor(...orange);
+      // Top Gold Accent Stripe
+      doc.setFillColor(...gold);
       doc.rect(0, 0, 210, 3, 'F');
 
       // Institute Title

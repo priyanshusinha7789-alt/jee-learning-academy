@@ -7,33 +7,58 @@ export default {
   theme: {
     extend: {
       colors: {
+        midnight: {
+          DEFAULT: '#101C35',
+          light: '#172A4A',
+          surface: '#1E355B'
+        },
+        deepBlue: {
+          DEFAULT: '#172A4A',
+          dark: '#101C35',
+          light: '#203A66'
+        },
+        royalBlue: {
+          DEFAULT: '#2855A6',
+          hover: '#1E4387',
+          light: '#3C6EC4',
+          subtle: '#EEF3FB'
+        },
+        gold: {
+          DEFAULT: '#D9AD55',
+          hover: '#C79A40',
+          light: '#E6C47D',
+          subtle: '#FAF6ED'
+        },
+        softBg: '#F5F7FB',
+        lightBlueGrey: '#E7EDF5',
+        // Semantic aliases for existing components
         navy: {
-          DEFAULT: '#14213D',
-          dark: '#0B132B',
-          light: '#1F2E52',
-          surface: '#1A294A'
+          DEFAULT: '#101C35',
+          dark: '#0A1224',
+          light: '#172A4A',
+          surface: '#1F3459'
         },
         electric: {
-          DEFAULT: '#2563EB',
-          hover: '#1D4ED8',
-          light: '#3B82F6',
-          subtle: '#EFF6FF'
+          DEFAULT: '#2855A6',
+          hover: '#1E4387',
+          light: '#3C6EC4',
+          subtle: '#EEF3FB'
         },
         orange: {
-          DEFAULT: '#FF7A30',
-          hover: '#E8661E',
-          light: '#FF9457',
-          subtle: '#FFF3ED'
+          DEFAULT: '#D9AD55',
+          hover: '#C79A40',
+          light: '#E6C47D',
+          subtle: '#FAF6ED'
         },
         teal: {
-          DEFAULT: '#14B8A6',
-          hover: '#0D9488',
-          subtle: '#F0FDFA'
+          DEFAULT: '#2855A6',
+          hover: '#1E4387',
+          subtle: '#E7EDF5'
         },
         cream: {
-          DEFAULT: '#FFF9F0',
-          dark: '#F7EEDF',
-          subtle: '#FFFDF9'
+          DEFAULT: '#F5F7FB',
+          dark: '#E7EDF5',
+          subtle: '#FFFFFF'
         }
       },
       fontFamily: {
@@ -41,10 +66,10 @@ export default {
         heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        'card': '0 4px 20px -2px rgba(20, 33, 61, 0.08)',
-        'card-hover': '0 12px 30px -4px rgba(20, 33, 61, 0.15)',
-        'glow-orange': '0 4px 20px 0 rgba(255, 122, 48, 0.35)',
-        'glow-blue': '0 4px 20px 0 rgba(37, 99, 235, 0.35)'
+        'card': '0 4px 20px -2px rgba(16, 28, 53, 0.06)',
+        'card-hover': '0 14px 34px -4px rgba(16, 28, 53, 0.12)',
+        'glow-gold': '0 4px 20px 0 rgba(217, 173, 85, 0.3)',
+        'glow-blue': '0 4px 20px 0 rgba(40, 85, 166, 0.3)'
       }
     },
   },
